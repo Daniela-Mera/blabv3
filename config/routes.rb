@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'matriculas/index'
   resources :trabajos
   devise_for :users
   devise_for :empresas
@@ -12,5 +13,8 @@ Rails.application.routes.draw do
 
   # root "articles#index"
   root to: "home#index"
+
+    #rutas para trabajar con n-n matricula/asignatura
+    get "/matriculas/form", to:"matriculas#index"
 
 end
