@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get "/parametros/genero", to:"genero#index" 
   get "/parametros/tipo", to:"tipo#index" 
   get "/parametros/regionch", to:"regionch#index" 
-  get "/trabajos/index", to:"trabajo#index" 
 
   # root "articles#index"
   root to: "home#index"
