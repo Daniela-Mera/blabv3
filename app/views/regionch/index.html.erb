@@ -1,0 +1,24 @@
+<h1>Regionch#index</h1>
+<p>Find me in app/views/regionch/index.html.erb</p>
+
+<p style="color: green"><%= notice %></p>
+
+
+<div id="regionchs">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Regiones de Chile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @regionchs.each do |regionch| %>
+        <tr>
+          <td><%= regionch.id %></td>
+          <td><%= regionch.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

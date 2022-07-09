@@ -1,0 +1,24 @@
+<h1>Genero#index</h1>
+<p>Find me in app/views/genero/index.html.erb</p>
+
+<p style="color: green"><%= notice %></p>
+
+
+<div id="generos">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Genero</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @generos.each do |genero| %>
+        <tr>
+          <td><%= genero.id %></td>
+          <td><%= genero.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

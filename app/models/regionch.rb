@@ -1,0 +1,2 @@
+class Regionch < ApplicationRecord
+end
