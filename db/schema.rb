@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_09_082341) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_09_095632) do
   create_table "empresas", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -67,6 +67,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_09_082341) do
     t.index ["tipo_id"], name: "index_trabajos_on_tipo_id"
   end
 
+  create_table "trabajos_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "trabajo_id", null: false
+    t.index ["trabajo_id", "user_id"], name: "index_trabajos_users_on_trabajo_id_and_user_id"
+    t.index ["user_id", "trabajo_id"], name: "index_trabajos_users_on_user_id_and_trabajo_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -91,4 +98,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_09_082341) do
   add_foreign_key "trabajos", "empresas"
   add_foreign_key "trabajos", "regionches"
   add_foreign_key "trabajos", "tipos"
+  add_foreign_key "trabajos_users", "trabajos"
+  add_foreign_key "trabajos_users", "users"
 end

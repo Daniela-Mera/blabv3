@@ -11,5 +11,8 @@ class Trabajo < ApplicationRecord
   #para que no se pueda acceder a trabajos sin antes iniciar sesion
   #before_action:authenticate_empresa!
 
-
+  # relacion n-n user trabajo
+  has_and_belongs_to_many :users
+  #has_and_belongs_to_many :trabajos
+  
 end

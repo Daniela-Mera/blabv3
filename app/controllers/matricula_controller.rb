@@ -1,0 +1,2 @@
+class MatriculaController < ApplicationController
+end
