@@ -1,2 +1,60 @@
-<h1>Matriculas#index</h1>
-<p>Find me in app/views/matriculas/index.html.erb</p>
+<h1>Mis postulaciones</h1>
+
+
+<!--
+<h2>MUESTRO TODAS LAS trabajos Y USUARIOS</h2>
+<h3>Usuarios:</h3>
+<% @usuarios.each do |u| %>
+          <%= u.email %><br>
+<% end %>
+<br><br>
+<h3>trabajos:</h3>
+<% @trabajos.each do |a| %>
+          <%= a.nombre %><br>
+<% end %>
+-->
+<span><%= current_user.nombre%>, <%= current_user.email %></span>
+<br>
+<br>
+<!-- Mostrar las matriculas actuales del usuario -->
+<h4>Trabajos postulados</h4>
+<%if @us2.count == 0 %>
+    <span>No tienes trabajos postulados...</span>
+    <br>
+    <br>
+<% else %>
+    <div id="matriculas">
+    <table class="table table-hover">
+        <thead class="table-dark">
+        <tr> 
+            <th>Cod.</th>
+            <th>Trabajo</th>
+            <th>Acción</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% @us2.each do |a| %>
+            <tr>
+            <td><%= a.id %></td>
+            <td><%= a.nombre %></td>
+            <td> <%= link_to "Eliminar postulacion", matriculas_eliminar_path(id: a.id, nom_as: a.nombre, us_id:current_user.id) %> </td>
+            </tr>                
+        <% end %>
+        </tbody>
+    </table>
+    </div>
+
+<% end %>
+
+
+<br>
+<h4>Postular</h4>
+    <!-- Cuando se active esa url, debe mostrar -->
+    <%= form_with url: "/matriculas/new", method: :get do |f| %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.label :trabajo %> <br>    
+        <%= select( nil, "asig", Trabajo.all.collect{ |a| [a.nombre, a.id] } ) %> <br><br>
+        <%= f.submit "Postularme" %>
+
+    <% end %>

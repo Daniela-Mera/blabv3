@@ -16,5 +16,7 @@ Rails.application.routes.draw do
 
     #rutas para trabajar con n-n matricula/asignatura
     get "/matriculas/form", to:"matriculas#index"
+    get "/matriculas/new", to:"matriculas#index" 
+    get "/matriculas/eliminar", to:"matriculas#eliminar"
 
 end
