@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @trabajo %>
+
+<div>
+  <%= link_to "Edit this trabajo", edit_trabajo_path(@trabajo) %> |
+  <%= link_to "Back to trabajos", trabajos_path %>
+
+  <%= button_to "Destroy this trabajo", @trabajo, method: :delete %>
+</div>

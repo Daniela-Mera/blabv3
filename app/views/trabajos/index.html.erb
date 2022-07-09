@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Trabajos</h1>
+
+<div id="trabajos">
+  <table class="table table-hover">
+    <tr>
+        <th scope="col">Trabajo</th> 
+        <th scope="col">Cargo</th>
+        <th scope="col">Sueldo</th>
+        <th scope="col">Vacantes</th>             
+        <th scope="col">Acción</th>
+    </tr>
+    <% @trabajos.each do |trabajo| %>
+      <tr>
+        <td><%= trabajo.id %></td> 
+        <td><%= trabajo.cargo %></td>
+        <td><%= trabajo.sueldo %></td>
+        <td><%= trabajo.vacantes %></td>             
+        <td><%= link_to "Show this trabajo", trabajo %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= link_to "New trabajo", new_trabajo_path %>

@@ -1,0 +1,62 @@
+<%= form_with(model: trabajo) do |form| %>
+  <% if trabajo.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(trabajo.errors.count, "error") %> prohibited this trabajo from being saved:</h2>
+
+      <ul>
+        <% trabajo.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nombre, style: "display: block" %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div>
+    <%= form.label :cargo, style: "display: block" %>
+    <%= form.text_field :cargo %>
+  </div>
+
+  <div>
+    <%= form.label :descripcion, style: "display: block" %>
+    <%= form.text_field :descripcion %>
+  </div>
+
+  <div>
+    <%= form.label :vacantes, style: "display: block" %>
+    <%= form.text_field :vacantes %>
+  </div>
+
+  <div>
+    <%= form.label :sueldo, style: "display: block" %>
+    <%= form.number_field :sueldo %>
+  </div>
+
+  <div>
+    <%= form.label :fecha_inicio, style: "display: block" %>
+    <%= form.date_field :fecha_inicio %>
+  </div>
+
+  <div>
+    <%= form.label :tipo_id, style: "display: block" %>
+    <%= form.text_field :tipo_id %>
+  </div>
+
+  <div>
+    <%= form.label :regionch_id, style: "display: block" %>
+    <%= form.text_field :regionch_id %>
+  </div>
+
+  <div>
+    <%= form.label :empresa_id, style: "display: block" %>
+    <%= form.text_field :empresa_id %>
+  </div>
+
+  <div><br><br>
+    <%= form.submit %>
+  </div>
+<% end %>

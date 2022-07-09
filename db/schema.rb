@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_09_064625) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_09_082341) do
   create_table "empresas", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -50,6 +50,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_09_064625) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "trabajos", force: :cascade do |t|
+    t.string "nombre"
+    t.string "cargo"
+    t.string "descripcion"
+    t.string "vacantes"
+    t.integer "sueldo"
+    t.date "fecha_inicio"
+    t.integer "tipo_id", null: false
+    t.integer "regionch_id", null: false
+    t.integer "empresa_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["empresa_id"], name: "index_trabajos_on_empresa_id"
+    t.index ["regionch_id"], name: "index_trabajos_on_regionch_id"
+    t.index ["tipo_id"], name: "index_trabajos_on_tipo_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -71,4 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_09_064625) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "trabajos", "empresas"
+  add_foreign_key "trabajos", "regionches"
+  add_foreign_key "trabajos", "tipos"
 end
